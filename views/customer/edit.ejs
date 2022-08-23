@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ubah Pelanggan</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Ubah Pelanggan</h1>
+    <form action="/customer/edit/<%= customer.id %>" method="POST">
+        Kode: <input type="text" name="customer_code" value="<%= customer.customerCode %>" /><br/>
+        Nama: <input type="text" name="customer_name" value="<%= customer.customerName %>" /><br/>
+        Telepon: <input type="text" name="phone" value="<%= customer.phone %>" /><br/>
+        <button type="submit"> Submit</button>
+
+    </form>
+
+  </body>
+</html>

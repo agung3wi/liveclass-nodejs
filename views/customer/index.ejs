@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Daftar Pelanggan</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Daftar Pelanggan</h1>
+    <a href="/customer/add">Tambah Pelanggan</a>
+    <br/>
+    <table style="border: 1ppx solid;">
+        <tr>
+          <th>Aksi</th>
+          <th>Kode</th>
+          <th>Nama</th>
+          <th>No Telepon</th>
+        </tr>
+        <% customerList.forEach(function(customer){ %>
+        <tr>
+          <td><a href="/customer/edit/<%= customer.id %>">Ubah</a> <a href="/customer/delete/<%= customer.id %>">Hapus</a></td>
+          <td><%= customer.customerName %></td>
+          <td><%= customer.customerCode %></td>
+          <td><%= customer.phone %></td>
+        </tr>
+        <% }); %>
+    </table>
+
+  </body>
+</html>
