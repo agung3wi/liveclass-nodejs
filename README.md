@@ -7,4 +7,4 @@ yang harus disiapkan:
 installasi:
 - cloning dari repo
 - jalankan
-```npm install``
+```npm install```
