@@ -3,12 +3,18 @@ const { Customer } = require('../models')
 const CustomerController = {
     index: async (req,res) => {
         let data = {
-            customerList: await Customer.findAll() // select * from customers
+            customerList: await Customer.findAll(), // select * from customers
+            content: {
+                header: 'Daftar Pelanggan'
+            }
         }
         return res.render("customer/index", data)
     },
     add: async (req,res) => {
-        return res.render("customer/add")
+        let content = {
+            header: 'Tambah Pelanggan'
+        }
+        return res.render("customer/add", {content: content})
     },
     store: async (req,res) => {
         let input = req.body

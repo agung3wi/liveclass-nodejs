@@ -22,6 +22,10 @@ router.get("/hash", function(req,res) {
   res.send(hash)
 })
 
+router.get("/home", function(req,res) {
+  res.render('layout/main')
+})
+
 router.get('/login', function(req, res, next) {
   res.render('login');
 });

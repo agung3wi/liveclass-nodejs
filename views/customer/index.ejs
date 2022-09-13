@@ -1,29 +1,57 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Daftar Pelanggan</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1>Daftar Pelanggan</h1>
-    <a href="/customer/add">Tambah Pelanggan</a>
-    <br/>
-    <table style="border: 1ppx solid;">
-        <tr>
-          <th>Aksi</th>
-          <th>Kode</th>
-          <th>Nama</th>
-          <th>No Telepon</th>
-        </tr>
-        <% customerList.forEach(function(customer){ %>
-        <tr>
-          <td><a href="/customer/edit/<%= customer.id %>">Ubah</a> <a href="/customer/delete/<%= customer.id %>">Hapus</a></td>
-          <td><%= customer.customerName %></td>
-          <td><%= customer.customerCode %></td>
-          <td><%= customer.phone %></td>
-        </tr>
-        <% }); %>
-    </table>
+<html lang="en">
+<head>
+    <%- include('../layout/head'); %>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
 
-  </body>
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div>
+
+  <%- include('../layout/navbar'); %>
+
+  <%- include('../layout/sidebar'); %>
+  <%- include('../layout/header', content); %>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <a href="/customer/add" class="btn btn-primary">Tambah Pelanggan</a>
+          <br/>
+          <br/>
+          <table class="table table-stripped">
+              <tr>
+                <th>Aksi</th>
+                <th>Kode</th>
+                <th>Nama</th>
+                <th>No Telepon</th>
+              </tr>
+              <% customerList.forEach(function(customer){ %>
+              <tr>
+                <td><a class="btn btn-success" href="/customer/edit/<%= customer.id %>">Ubah</a>&nbsp;&nbsp;<a href="/customer/delete/<%= customer.id %>" class="btn btn-danger">Hapus</a></td>
+                <td><%= customer.customerName %></td>
+                <td><%= customer.customerCode %></td>
+                <td><%= customer.phone %></td>
+              </tr>
+              <% }); %>
+          </table>    
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <%- include('../layout/footer'); %>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+<%- include('../layout/script') %>
+</body>
 </html>

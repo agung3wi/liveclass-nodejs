@@ -1,18 +1,45 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Ubah Pelanggan</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1>Ubah Pelanggan</h1>
-    <form action="/customer/edit/<%= customer.id %>" method="POST">
-        Kode: <input type="text" name="customer_code" value="<%= customer.customerCode %>" /><br/>
-        Nama: <input type="text" name="customer_name" value="<%= customer.customerName %>" /><br/>
-        Telepon: <input type="text" name="phone" value="<%= customer.phone %>" /><br/>
-        <button type="submit"> Submit</button>
+<html lang="en">
+<head>
+    <%- include('../layout/head'); %>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
 
-    </form>
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div>
 
-  </body>
+  <%- include('../layout/navbar'); %>
+
+  <%- include('../layout/sidebar'); %>
+  <%- include('../layout/header'); %>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <form action="/customer/edit/<%= customer.id %>" method="POST">
+            Kode: <input type="text" name="customer_code" value="<%= customer.customerCode %>" /><br/>
+            Nama: <input type="text" name="customer_name" value="<%= customer.customerName %>" /><br/>
+            Telepon: <input type="text" name="phone" value="<%= customer.phone %>" /><br/>
+            <button type="submit"> Submit</button>
+    
+        </form>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <%- include('../layout/footer'); %>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+<%- include('../layout/script') %>
+</body>
 </html>
